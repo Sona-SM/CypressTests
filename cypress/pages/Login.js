@@ -1,6 +1,11 @@
+
 class LoginPage {
   visit() {
     cy.visit('https://parabank.parasoft.com/parabank/register.htm');
+  }
+  
+  getloginForm() {
+    return cy.get("#loginPanel");
   }
 
   getUsername(value) {
@@ -8,13 +13,14 @@ class LoginPage {
   }
 
   getPassword(value) {
-    return cy.get(':nth-child(4) > .input').type(value)
+    return cy.get(':nth-child(4) > .input').type(value);
   }
 
   submit() {
-    const button = cy.get(':nth-child(5) > .button')
-    button.click()
+    return  cy.get(":nth-child(5) > .button");
   }
 }
+
+
 
 export const loginPage=new LoginPage();
