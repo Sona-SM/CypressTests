@@ -6,4 +6,20 @@ const data={
     
 }
   
-export{data}
+const dataSignup ={
+    firstName:"First Name",
+    lastName: "Last name",
+    address:"Address",
+    city:"City",
+    state:"State",
+    zipCode:"Zip Code",
+    phone:"phone",
+    SNN:"SNN",
+    usernameSignup:"New user",
+    passwordSingup: "password",
+    confirmPassword:"password",
+    notMatchPassword:"password123",
+    
+}
+
+export{data, dataSignup}

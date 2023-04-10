@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Sona-SM/CypressTests#readme",
   "devDependencies": {
     "cypress": "^12.9.0"
+  },
+  "dependencies": {
+    "faker": "^6.6.6"
   }
 }
