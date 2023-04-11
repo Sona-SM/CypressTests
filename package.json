@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/Sona-SM/CypressTests#readme",
   "devDependencies": {
-    "cypress": "^12.9.0"
+    "cypress": "^12.9.0",
+    "cypress-dotenv": "^2.0.0",
+    "dotenv": "^16.0.3"
   },
   "dependencies": {
     "faker": "^6.6.6"
