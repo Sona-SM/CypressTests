@@ -1,6 +1,4 @@
-import { signupPage } from "../pages/Signup";
-import { data } from "../utils/data";
-import { validationMessages } from "../utils/messages";
+
 
 // ***********************************************
 // This example commands.js shows you how to
@@ -43,6 +41,11 @@ Cypress.Commands.add('login', (email, password) => {
    return `test${result}`;
 }) 
 
+Cypress.Commands.add('typeIfDefined', (selector, value) => {
+  if (typeof value !== 'undefined') {
+    cy.get(selector).type(value);
+  }
+});
 
 Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { 
 
