@@ -1,7 +1,7 @@
 import { signUp } from "../pages/autoExercise/Signup";
 import { data } from "../utils/data";
 
-let userName,secondUserName
+let userName,secondUserName,firstItem, sameItem
 describe("Sign up", () => {
   it("Verify login functionality with valid credentials", () => {
     signUp.visit("login");
@@ -52,12 +52,61 @@ describe("Sign up", () => {
           expect($elem).to.contain('Full-Fledged practice website for Automation Engineers')
           expect($elem).to.contain('All QA engineers can use this website for automation practice and API testing either they are at beginner or advance level. This is for everybody to help them brush up their automation skills.')
         });
-        cy.get('.active > :nth-child(1) > .test_cases_list > .btn').should('be.visible').and('contain','Test Cases');
-        cy.get('.active > :nth-child(1) > .test_cases_list > .btn').should('have.css','background-color','rgb(92, 184, 92)');
-        cy.get('.active > :nth-child(1) > .test_cases_list > .btn').realHover().should('have.css','background-color','rgb(254, 152, 15)')
-        cy.get('.active > :nth-child(1) > .apis_list > .btn').should('have.css','background-color','rgb(92, 184, 92)').and('contain','APIs list for practice');
+        signUp.getTestCases().should('be.visible').and('contain','Test Cases');
+        signUp.getTestCases().should('have.css','background-color', 'rgb(92, 184, 92)');
+        signUp.getTestCases().realHover().should('have.css','background-color', 'rgb(254, 152, 15)')
+        signUp.getApi().should('have.css','background-color','rgb(92, 184, 92)').and('contain','APIs list for practice');
        cy.wait(7000)
        cy.get(".item").should('have.class','active');
-       cy.get('.active > :nth-child(2) > .girl').should('be.visible')
+       cy.get('.active > :nth-child(2) > .girl').should('be.visible');
+       signUp.getFirstItem().should('be.visible').and('contain', 'Rs. 500');
+       signUp.getFirstItem().realHover().should('have.css','background-color', 'rgba(0, 0, 0, 0)');
+       signUp.submitViewItem().click();
+       signUp.visit("product_details/1");
+       cy.get('.col-sm-9').should('be.visible');
+       signUp.getNew().should('be.visible');
+       cy.get('.product-information > h2').and("have.text", "Blue Top");
+       signUp.getQuantity().should("have.value", "1");
+       cy.get('#accordian').should('be.visible');
+       signUp.getPlusWoman().click();
+       signUp.getWoman().should('be.visible');
+       signUp.getTop().click();
+       signUp.visit("category_products/2");
+       signUp.getFirstItem().then(($val)=>{
+        expect(firstItem).to.equal(sameItem)
+      });
+      signUp.submitAddToCard().click();
+      signUp.getPopupWindow().should('be.visible');
+      signUp.getContinueShopping().click();
+      signUp.visit("view_cart");
+      cy.get('#product-1').should('be.visible');
+      signUp.getCardDelete().click();
+      signUp.getEmptyCard().should('be.visible').and("have.value", "");
+      signUp.visit("category_products/2");
+      signUp.submitAddToCard().click();
+      signUp.getContinueShopping().click();
+      signUp.visit("view_cart");
+      signUp.getProceedCheckout().click();
+      signUp.getAddressDelivery().should('be.visible');
+      cy.get('.form-control').type("Thank you");
+      signUp.submitPlaceOrder().click();
+      signUp.visit("payment");
+      cy.get('.payment-information > .row > :nth-child(2)').should('be.visible');
+      cy.get('[data-qa="name-on-card"]').type("a");
+      cy.get('[data-qa="card-number"]').type("0");
+      cy.get('[data-qa="cvc"]').type("000");
+      cy.get('[data-qa="cvc"]').trigger('keydown', { keyCode: 9 })
+      cy.get('[data-qa="expiry-month"]').type("12");
+      cy.get('[data-qa="expiry-month"]').trigger('keydown', { keyCode: 9 })
+      cy.get('[data-qa="expiry-year"]').type("2050");
+      cy.get('[data-qa="pay-button"]').click();
+      signUp.visit("payment_done/0");
+      cy.get('[data-qa="order-placed"] > b').should("have.text", "Order Placed!");
+      signUp.getContinue().click();
+      signUp.visit("login");
+      signUp.sumbitDeleteAccount().click();
+      signUp.visit("delete_account");
+      cy.get('b').should("have.text", "Account Deleted!")
       });
   });
+

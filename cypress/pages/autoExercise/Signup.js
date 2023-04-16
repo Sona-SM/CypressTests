@@ -65,6 +65,78 @@ class SignUp {
         return cy.get(':nth-child(10) > a');
     }
 
+    submitViewItem(){
+      return cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a');
+    }
+
+    getQuantity(){
+      return cy.get('#quantity');
+    }
+
+    getTestCases(){
+      return cy.get('.active > :nth-child(1) > .test_cases_list > .btn');
+    }
+    
+    getNew(){
+      return cy.get('.newarrival');
+    }
+
+    getPlusWoman(){
+      return cy.get(':nth-child(1) > .panel-heading > .panel-title > a > .badge');
+    }
+
+    getWoman(){
+      return cy.get('#Women > .panel-body > ul');
+    }
+
+    getFirstItem(){
+      return cy.get(':nth-child(3) > .product-image-wrapper > .single-products > .productinfo');
+    }
+
+    getTop(){
+      return cy.get('#Women > .panel-body > ul > :nth-child(2) > a');
+    }
+    
+    getApi(){
+     return cy.get('.active > :nth-child(1) > .apis_list > .btn');
+    }
+
+    submitAddToCard(){
+      return cy.get(':nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn');
+    }
+
+    getAdded(){
+      return cy.get(':nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn');    
+    }
+
+    getPopupWindow(){
+      return cy.get('.modal-content');
+    }
+
+    getContinueShopping(){
+      return cy.get('.modal-footer > .btn');
+    }
+
+    getCardDelete(){
+      return cy.get('.cart_quantity_delete');
+    }
+
+    getEmptyCard(){
+      return cy.get('#empty_cart > .text-center');
+    }
+    
+    getProceedCheckout(){
+      return cy.get('.col-sm-6 > .btn')
+    }
+
+    getAddressDelivery(){
+      return cy.get('#address_delivery');
+    }
+
+    submitPlaceOrder(){
+      return cy.get(':nth-child(7) > .btn');
+    }
+
     submit() {
         return cy.get('[data-qa="signup-button"]');
       }
@@ -72,6 +144,10 @@ class SignUp {
     submitCreate(){
         return cy.get('[data-qa="create-account"]');
     }  
+
+    sumbitDeleteAccount(){
+      return cy.get('.shop-menu > .nav > :nth-child(5) > a');
+    }
     
     generateRandomName(length,email=''){
       let result = '';
