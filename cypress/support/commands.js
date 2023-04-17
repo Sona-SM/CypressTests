@@ -4,7 +4,6 @@ import { validationMessages } from "../utils/messages";
 import { emptyData } from "../utils/data";
 import { dataSignup } from "../utils/data";
 
-
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite
@@ -32,11 +31,8 @@ import { dataSignup } from "../utils/data";
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add("signUpCommands", (dataSignup) => {
-  cy.get(".title").should("have.text", "Signing up is easy!");
-  cy.get("#rightPanel > p").should(
-    "have.text",
-    "If you have an account with us you can sign-up for free instant online access. You will have to provide some personal information."
-  );
+  signupPage.getTitle().should("have.text", validationMessages.signUpText);
+  signupPage.getSignupText().should("have.text", validationMessages.accountText);
   signupPage.submit().then(($button) => {
     expect($button).to.have.css("background-color", "rgb(202, 129, 37)");
   });
@@ -56,7 +52,7 @@ Cypress.Commands.add("signUpCommands", (dataSignup) => {
 
 Cypress.Commands.add("emptyErrorCommands", (signUp) => {
   signupPage.submit().click();
-  
+
   cy.get(".error").then(($error) => {
     expect($error).to.contain(validationMessages.emptyFirstName);
   });
@@ -66,8 +62,8 @@ Cypress.Commands.add("emptyErrorCommands", (signUp) => {
   cy.get(".error").then(($error) => {
     expect($error).to.contain(validationMessages.emptyAddress);
   });
-    cy.get(".error").then(($error) => {
-      expect($error).to.contain(validationMessages.emptyCity);
+  cy.get(".error").then(($error) => {
+    expect($error).to.contain(validationMessages.emptyCity);
   });
   cy.get(".error").then(($error) => {
     expect($error).to.contain(validationMessages.emptyState);
@@ -87,34 +83,42 @@ Cypress.Commands.add("emptyErrorCommands", (signUp) => {
   cy.get(".error").then(($error) => {
     expect($error).to.contain(validationMessages.emptyConfirm);
   });
-})
+});
 
 Cypress.Commands.add("pageCommands", (dataSignup) => {
-  signupPage.getTitle().should("have.text", dataSignup.title)
-  signupPage.getTextUnderSignup().should("have.text", dataSignup.textUnderRegister)
-  signupPage.getSolutions().should('be.visible');
+  signupPage.getTitle().should("have.text", dataSignup.title);
+  signupPage
+    .getTextUnderSignup()
+    .should("have.text", dataSignup.textUnderRegister);
+  signupPage.getSolutions().should("be.visible");
   signupPage.submitAboutUs().click();
-  signupPage.visit("about.htm")
-  signupPage.getAboutUsText().should('be.visible');
+  signupPage.visit("about.htm");
+  signupPage.getAboutUsText().should("be.visible");
   signupPage.submitServices().click();
-  signupPage.getPanelServices().should('be.visible');
+  signupPage.getPanelServices().should("be.visible");
   cy.wait(1000);
   signupPage.submitAdminPage().click();
-  signupPage.getAdminPanelView().should('be.visible');
-  signupPage.submitRestJsonRadio().click().should('be.checked').and('have.value', dataSignup.textJson);
+  signupPage.getAdminPanelView().should("be.visible");
+  signupPage
+    .submitRestJsonRadio()
+    .click()
+    .should("be.checked")
+    .and("have.value", dataSignup.textJson);
   signupPage.submitSubmit().click();
-  signupPage.getSuccessSettings().should("have.text", dataSignup.settingsSuccess);
+  signupPage
+    .getSuccessSettings()
+    .should("have.text", dataSignup.settingsSuccess);
   signupPage.visit("sitemap.htm");
-  signupPage.getRegisterPanel().should('be.visible');
-  signupPage.getLoginPanel().should('be.visible')
-  signupPage.visit("solutions/")
-  signupPage.getHomeLogo().should('be.visible');
-  cy.visit("www.parasoft.com/products/")
-  cy.wait(2000)
-  cy.get('.inner-banner-wrap').should('be.visible');
-  cy.go('back');
-  signupPage.getMainLogo().should('be.visible');
-})
+  signupPage.getRegisterPanel().should("be.visible");
+  signupPage.getLoginPanel().should("be.visible");
+  signupPage.visit("solutions/");
+  signupPage.getHomeLogo().should("be.visible");
+  cy.visit("www.parasoft.com/products/");
+  cy.wait(2000);
+  cy.get(".inner-banner-wrap").should("be.visible");
+  cy.go("back");
+  signupPage.getMainLogo().should("be.visible");
+});
 
 Cypress.Commands.add("existedCommands", (dataSignup) => {
   signupPage.getFirstName(dataSignup.firstName);
@@ -137,5 +141,5 @@ Cypress.Commands.add("existedCommands", (dataSignup) => {
     cy.get(".error").then(($error) => {
       expect($error).to.contain(validationMessages.notMatchPassword);
     });
-})
-})
+  });
+});

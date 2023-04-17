@@ -1,120 +1,124 @@
 class SignupPage {
-    visit() {
-      cy.visit('https://parabank.parasoft.com/parabank/register.htm');
-    }
-    getSignupForm() {
-        return cy.get('.form2');
-      }
+  visit() {
+    cy.visit("https://parabank.parasoft.com/parabank/register.htm");
+  }
 
-    getTitle(){
-      return cy.get(".title");
-    }  
-    
-    getTextUnderSignup(){
-      return cy.get('#rightPanel > p');
-    }
+  getSignupText() {
+    return cy.get("#rightPanel > p");
+  }
+  getSignupForm() {
+    return cy.get(".form2");
+  }
 
-    getSolutions(){
-      return cy.get('.Solutions');
-    }
+  getTitle() {
+    return cy.get(".title");
+  }
 
-    getAboutUsText(){
-      return cy.get('#rightPanel');
-    }
-    submitServices(){
-      return cy.get('.leftmenu > :nth-child(3) > a');
-    }
+  getTextUnderSignup() {
+    return cy.get("#rightPanel > p");
+  }
 
-    getPanelServices(){
-      return cy.get('#rightPanel > :nth-child(4)');
-    }
+  getSolutions() {
+    return cy.get(".Solutions");
+  }
 
-    submitAboutUs(){
-      return cy.get('.leftmenu > :nth-child(2) > a');
-    }
+  getAboutUsText() {
+    return cy.get("#rightPanel");
+  }
+  submitServices() {
+    return cy.get(".leftmenu > :nth-child(3) > a");
+  }
 
-    submitAdminPage(){
-      return cy.get('.leftmenu > :nth-child(6) > a')
-    }
-      getFirstname() {
-       return cy.get(':nth-child(1) > [width="20%"]');
-      }
-    getAdminPanelView(){
-      return cy.get('#rightPanel')
-    }
+  getPanelServices() {
+    return cy.get("#rightPanel > :nth-child(4)");
+  }
 
-    submitSubmit(){
-      return cy.get('#adminForm > .button');
-    }
+  submitAboutUs() {
+    return cy.get(".leftmenu > :nth-child(2) > a");
+  }
 
-    getHomeLogo(){
-      return cy.get('.home > a');
-    }
+  submitAdminPage() {
+    return cy.get(".leftmenu > :nth-child(6) > a");
+  }
+  getFirstname() {
+    return cy.get(':nth-child(1) > [width="20%"]');
+  }
+  getAdminPanelView() {
+    return cy.get("#rightPanel");
+  }
 
-    getMainLogo(){
-      return cy.get('#topPanel');
-    }
-    getSuccessSettings(){
-      return cy.get('#rightPanel > p > b');
-    }
+  submitSubmit() {
+    return cy.get("#adminForm > .button");
+  }
 
-    getRegisterPanel(){
-      return cy.get('#rightPanel');
-    }
+  getHomeLogo() {
+    return cy.get(".home > a");
+  }
 
-    getLoginPanel(){
-      return cy.get('#loginPanel > form');
-    }
-    submitRestJsonRadio(){
-      return cy.get('#accessMode3');
-    }
+  getMainLogo() {
+    return cy.get("#topPanel");
+  }
+  getSuccessSettings() {
+    return cy.get("#rightPanel > p > b");
+  }
 
-      getFirstName(value) {
-        return cy.get(':nth-child(1) > [width="20%"]').type(value);
-      }
-      getLastName(value) {
-        return cy.get(':nth-child(2) > [width="20%"]').type(value);
-      }
+  getRegisterPanel() {
+    return cy.get("#rightPanel");
+  }
 
-      getAddress(value) {
-        return cy.get(':nth-child(3) > [width="20%"]').type(value);
-      }
+  getLoginPanel() {
+    return cy.get("#loginPanel > form");
+  }
+  submitRestJsonRadio() {
+    return cy.get("#accessMode3");
+  }
 
-      getCity(value) {
-        return cy.get(':nth-child(4) > [width="20%"]').type(value);
-      }
-      
-      getState(value) {
-        return cy.get(':nth-child(5) > [width="20%"]').type(value);
-      }
+  getFirstName(value) {
+    return cy.get(':nth-child(1) > [width="20%"]').type(value);
+  }
+  getLastName(value) {
+    return cy.get(':nth-child(2) > [width="20%"]').type(value);
+  }
 
-      getZip(value) {
-        return cy.get(':nth-child(6) > [width="20%"]').type(value);
-      }
+  getAddress(value) {
+    return cy.get(':nth-child(3) > [width="20%"]').type(value);
+  }
 
-      getPhone(value) {
-        return cy.get(':nth-child(7) > [width="20%"]').type(value);
-      }
+  getCity(value) {
+    return cy.get(':nth-child(4) > [width="20%"]').type(value);
+  }
 
-      getSnn(value) {
-        return cy.get(':nth-child(8) > [width="20%"]').type(value);
-      }
+  getState(value) {
+    return cy.get(':nth-child(5) > [width="20%"]').type(value);
+  }
 
-      getUsername(value) {
-        return cy.get(':nth-child(10) > [width="20%"]').type(value);
-      }
+  getZip(value) {
+    return cy.get(':nth-child(6) > [width="20%"]').type(value);
+  }
 
-      getPassword(value) {
-        return cy.get(':nth-child(11) > [width="20%"]').type(value);
-      }
+  getPhone(value) {
+    return cy.get(':nth-child(7) > [width="20%"]').type(value);
+  }
 
-      getConfirm(value) {
-        return cy.get(':nth-child(12) > [width="20%"]').type(value);
-      }
-    
-      submit() {
-        return cy.get('[colspan="2"] > .button');
-      }
-    }
-    
-export const signupPage=new SignupPage();  
+  getSnn(value) {
+    return cy.get(':nth-child(8) > [width="20%"]').type(value);
+  }
+
+  getUsername(value) {
+    return cy.get(':nth-child(10) > [width="20%"]').type(value);
+  }
+
+  getPassword(value) {
+    return cy.get(':nth-child(11) > [width="20%"]').type(value);
+  }
+
+  getConfirm(value) {
+    return cy.get(':nth-child(12) > [width="20%"]').type(value);
+  }
+
+  submit() {
+    return cy.get('[colspan="2"] > .button');
+  }
+}
+
+export const signupPage = new SignupPage();
