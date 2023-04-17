@@ -5,11 +5,73 @@ class SignupPage {
     getSignupForm() {
         return cy.get('.form2');
       }
+
+    getTitle(){
+      return cy.get(".title");
+    }  
     
-      getFirstname(value) {
-       return cy.get(':nth-child(1) > [width="20%"]').type(value);
+    getTextUnderSignup(){
+      return cy.get('#rightPanel > p');
+    }
+
+    getSolutions(){
+      return cy.get('.Solutions');
+    }
+
+    getAboutUsText(){
+      return cy.get('#rightPanel');
+    }
+    submitServices(){
+      return cy.get('.leftmenu > :nth-child(3) > a');
+    }
+
+    getPanelServices(){
+      return cy.get('#rightPanel > :nth-child(4)');
+    }
+
+    submitAboutUs(){
+      return cy.get('.leftmenu > :nth-child(2) > a');
+    }
+
+    submitAdminPage(){
+      return cy.get('.leftmenu > :nth-child(6) > a')
+    }
+      getFirstname() {
+       return cy.get(':nth-child(1) > [width="20%"]');
       }
-    
+    getAdminPanelView(){
+      return cy.get('#rightPanel')
+    }
+
+    submitSubmit(){
+      return cy.get('#adminForm > .button');
+    }
+
+    getHomeLogo(){
+      return cy.get('.home > a');
+    }
+
+    getMainLogo(){
+      return cy.get('#topPanel');
+    }
+    getSuccessSettings(){
+      return cy.get('#rightPanel > p > b');
+    }
+
+    getRegisterPanel(){
+      return cy.get('#rightPanel');
+    }
+
+    getLoginPanel(){
+      return cy.get('#loginPanel > form');
+    }
+    submitRestJsonRadio(){
+      return cy.get('#accessMode3');
+    }
+
+      getFirstName(value) {
+        return cy.get(':nth-child(1) > [width="20%"]').type(value);
+      }
       getLastName(value) {
         return cy.get(':nth-child(2) > [width="20%"]').type(value);
       }
