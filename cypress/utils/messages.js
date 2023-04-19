@@ -12,5 +12,9 @@ export const validationMessages = {
     emptyUsername:'Username is required.',
     emptyPassword:'Password is required.',
     emptyConfirm:'Password confirmation is required.',
-    notMatchPassword: 'Passwords did not match.'
+    notMatchPassword: 'Passwords did not match.',
+    successSignedUp: "Congratulations! Your new account has been successfully created!",
+    caruselPanelFirstText: "Full-Fledged practice website for Automation Engineers",
+    caruselPanelSecondText: "All QA engineers can use this website for automation practice and API testing either they are at beginner or advance level. This is for everybody to help them brush up their automation skills.",
+    
 }

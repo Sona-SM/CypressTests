@@ -1,3 +1,5 @@
+import { signUp } from "../pages/autoExercise/Signup"
+
 const data={
     password: "password",
     firstName: "First Name",
@@ -7,6 +9,8 @@ const data={
     state: "State",
     city: "City",
     zip: "0000",
-    mobilePhone: "1110000000"
+    mobilePhone: "1110000000",
+    signinEmail: signUp.getSigninEmail,
+    loginPassword: signUp.getLoginPassword
 }
 export{data}
