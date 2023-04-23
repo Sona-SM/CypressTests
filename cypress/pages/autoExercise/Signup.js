@@ -27,6 +27,11 @@ class SignUp {
     return cy.get('[data-qa="login-email"]');
   }
 
+  getSignupPageEmail(){
+    return cy.get('[data-qa="email"]');
+  }
+  
+
   getPassword() {
     return cy.get('[data-qa="password"]');
   }
@@ -117,6 +122,10 @@ class SignUp {
 
   getButtons() {
     return cy.get(".shop-menu > .nav");
+  }
+
+  getAutomationIcon(){
+    return cy.get(".item");
   }
 
   getLoggedin() {

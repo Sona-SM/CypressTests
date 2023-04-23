@@ -16,5 +16,11 @@ export const validationMessages = {
     successSignedUp: "Congratulations! Your new account has been successfully created!",
     caruselPanelFirstText: "Full-Fledged practice website for Automation Engineers",
     caruselPanelSecondText: "All QA engineers can use this website for automation practice and API testing either they are at beginner or advance level. This is for everybody to help them brush up their automation skills.",
-    
+    addressInfoText: "Address Information",
+    addressExample: "Address * (Street address, P.O. Box, Company name, etc.)",
+    automationIconText: "Automation",
+    testCasesText: "Test Cases",
+    apiListText: "APIs list for practice",
+    successCheckoutText: "Thank you",
+    succesDeletedAccountText: "Account Deleted!"
 }
