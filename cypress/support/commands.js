@@ -149,40 +149,40 @@ Cypress.Commands.add('pageCommands', (signUp, data) => {
     signUp.visit("login");
       })
 
-    // Cypress.Commands.add('caruselCommands', (signUp, data) => { 
-    // signUp.visit();
-    // signUp.getButtons().should("be.visible");
-    // // signUp.getLoggedin().then(($val) => {
-    // //   expect(secondUserName).to.equal(userName);
-    // // });
-    // signUp.getAutomationIcon().then(($elem) => {
-    //   expect($elem).to.contain(validationMessages.automationIconText);
-    //   expect($elem).to.contain(
-    //     validationMessages.caruselPanelFirstText
-    //   );
-    //   expect($elem).to.contain(
-    //    validationMessages.caruselPanelSecondText
-    //   );
+    Cypress.Commands.add('caruselCommands', (signUp, data) => { 
+    signUp.visit();
+    signUp.getButtons().should("be.visible");
+    // signUp.getLoggedin().then(($val) => {
+    //   expect(secondUserName).to.equal(userName);
     // });
-    // signUp.getTestCases().should("be.visible").and("contain", validationMessages.testCasesText);
-    // signUp
-    //   .getTestCases()
-    //   .should("have.css", "background-color", data.greenColor);
-    // signUp
-    //   .getTestCases()
-    //   .realHover()
-    //   .should("have.css", "background-color", data.orangeColor);
-    // signUp
-    //   .getApi()
-    //   .should("have.css", "background-color", data.greenColor)
-    //   .and("contain", validationMessages.apiListText);
-    // cy.wait(7000);
-    // cy.get(".item").should("have.class", "active");
-    // signUp.getFirstCaruselItem().should("be.visible");
+    signUp.getAutomationIcon().then(($elem) => {
+      expect($elem).to.contain(validationMessages.automationIconText);
+      expect($elem).to.contain(
+        validationMessages.caruselPanelFirstText
+      );
+      expect($elem).to.contain(
+       validationMessages.caruselPanelSecondText
+      );
+    });
+    signUp.getTestCases().should("be.visible").and("contain", validationMessages.testCasesText);
+    signUp
+      .getTestCases()
+      .should("have.css", "background-color", data.greenColor);
+    signUp
+      .getTestCases()
+      .realHover()
+      .should("have.css", "background-color", data.orangeColor);
+    signUp
+      .getApi()
+      .should("have.css", "background-color", data.greenColor)
+      .and("contain", validationMessages.apiListText);
+    cy.wait(7000);
+    cy.get(".item").should("have.class", "active");
+    signUp.getFirstCaruselItem().should("be.visible");
 
-    // signUp.getFirstItem().should("be.visible").and("contain", data.codeFirstItem);
-    // signUp
-    //   .getFirstItem()
-    //   .realHover()
-      //.should("have.css", "background-color", data.hoverColor);
-  //})
+    signUp.getFirstItem().should("be.visible").and("contain", data.codeFirstItem);
+    signUp
+      .getFirstItem()
+      .realHover()
+      .should("have.css", "background-color", data.hoverColor);
+  })
