@@ -18,7 +18,7 @@ Cypress.Commands.add('login', (email, password) => { })
    return `test${result}`;
 }) 
 
-let userName, secondUserName, firstItem, sameItem, email, signupEmail, signinEmail, signinPassword, signupPassword
+let userName, secondUserName, firstItem, sameItem, email, signupEmail
 Cypress.Commands.add('pageCommands', (signUp, data) => { 
   signUp.getUsername().type(signUp.generateRandomName(5, ""));
     signUp.getUsername().invoke("val").then((val) => {
@@ -152,9 +152,6 @@ Cypress.Commands.add('pageCommands', (signUp, data) => {
     Cypress.Commands.add('caruselCommands', (signUp, data) => { 
     signUp.visit();
     signUp.getButtons().should("be.visible");
-    // signUp.getLoggedin().then(($val) => {
-    //   expect(secondUserName).to.equal(userName);
-    // });
     signUp.getAutomationIcon().then(($elem) => {
       expect($elem).to.contain(validationMessages.automationIconText);
       expect($elem).to.contain(
