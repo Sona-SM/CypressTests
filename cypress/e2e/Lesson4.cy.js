@@ -10,9 +10,9 @@ describe("Sign up", () => {
     cy.pageCommands(signUp, data);
   });
 
-  // it("Verify caresul flow", () => {
-  //   signUp.visit();
-  //   cy.caruselCommands(signUp, data);
-  // });
+  it("Verify caresul flow", () => {
+    signUp.visit();
+    cy.caruselCommands(signUp, data);
+  });
 
 });
