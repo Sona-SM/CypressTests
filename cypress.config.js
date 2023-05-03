@@ -7,8 +7,8 @@ module.exports = defineConfig({
 
     },
     env: {
-      globalUrl:process.env.GLOBAL_URL
-
+      globalUrl:process.env.GLOBAL_URL,
+      globalApiUrl:process.env.Global_API_URL
     },
   },
 });
