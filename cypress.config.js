@@ -9,7 +9,7 @@ module.exports = defineConfig({
       // config = dotenvPlugin(config)
       // return config
     },
-    baseUrl: 'https://parabank.parasoft.com/parabank/register.htm',
+    baseUrl: 'https://demoqa.com/webtables',
     env: {
     globalUrl:process.env.GLOBAL_URL
     }

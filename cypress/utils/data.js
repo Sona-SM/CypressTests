@@ -1,29 +1,13 @@
 const data={
-    username:"username",
-    password: "password",
-    usernameInvaid:"123456789",
-    passwordInvaid: "123456789"
-    
+    firstLineName: "Cierra",
+    firstName: "Test",
+    lastName: "Testik",
+    email: "email@email.com",
+    age: "20",
+    salary: "1000",
+    department: "department",
+    newAdded: "Test",
+    editFormTitle: "Registration Form×Close"
 }
   
-const dataSignup ={
-    firstName:"First Name",
-    lastName: "Last name",
-    address:"Address",
-    city:"City",
-    state:"State",
-    zipCode:"Zip Code",
-    phone:"phone",
-    SNN:"SNN",
-    usernameSignup:"New user1",
-    passwordSingup: "password",
-    confirmPassword:"password",
-    notMatchPassword:"password123",
-    title: "Signing up is easy!",
-    textUnderRegister: "If you have an account with us you can sign-up for free instant online access. You will have to provide some personal information.",
-    textJson: "restjson",
-    settingsSuccess: "Settings saved successfully."
-}
-
-
-export{data, dataSignup}
+export{data}
