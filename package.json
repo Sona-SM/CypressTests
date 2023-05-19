@@ -1,27 +1,29 @@
 {
-  "name": "cypresstests",
+  "name": "automation_qa",
   "version": "1.0.0",
-  "description": "ACA",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sona-SM/CypressTests.git"
-  },
-  "author": "Sona Margaryan",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Sona-SM/CypressTests/issues"
-  },
-  "homepage": "https://github.com/Sona-SM/CypressTests#readme",
   "devDependencies": {
-    "cypress": "^12.9.0",
-    "cypress-dotenv": "^2.0.0",
-    "dotenv": "^16.0.3"
+    "cypress": "^12.11.0"
   },
   "dependencies": {
-    "faker": "^6.6.6"
+    "@badeball/cypress-cucumber-preprocessor": "^17.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress-real-events": "^1.8.1",
+    "dotenv": "^16.0.3"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/e2e/**/*.{js,ts}",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }
