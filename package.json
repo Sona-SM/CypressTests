@@ -18,10 +18,12 @@
   "homepage": "https://github.com/Sona-SM/CypressTests#readme",
   "devDependencies": {
     "cypress": "^12.9.0",
+    "cypress-delete-downloads-folder": "^0.0.2",
     "cypress-dotenv": "^2.0.0",
     "dotenv": "^16.0.3"
   },
   "dependencies": {
+    "cypress-downloadfile": "^1.2.3",
     "cypress-real-events": "^1.7.6",
     "faker": "^6.6.6"
   }

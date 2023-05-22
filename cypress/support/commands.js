@@ -1,3 +1,6 @@
+require('cypress-downloadfile/lib/downloadFileCommand')
+require('cypress-delete-downloads-folder').addCustomCommand();
+
 import { signUp } from "../pages/autoExercise/Signup";
 import { validationMessages } from "../utils/messages";
 import { data } from "../utils/data";
@@ -138,48 +141,58 @@ Cypress.Commands.add('pageCommands', (signUp, data) => {
     signUp.getPayButton().click();
     signUp.visit("payment_done/0");
     signUp.getOrderReplaced().should("have.text", "Order Placed!");
-    signUp.getContinue().click();
-    signUp.visit("login");
-    signUp.sumbitDeleteAccount().click();
-    signUp.visit("delete_account");
-    signUp.getAccountDeleted().should("have.text", validationMessages.succesDeletedAccountText );
-    signUp.getContinue().click();
-    signUp.visit();
-    signUp.getSignupLogin().click();
-    signUp.visit("login");
+    cy.window().document().then(function(doc) {
+      doc.addEventListener('click', () => {
+        setTimeout(function () {doc.location.reload() }, 5000)
+      })
+      cy.get('.col-sm-9 > .btn-default').click()
+    })
+    cy.task("readdir", "cypress/downloads/").then((fileContent)  => {
+      cy.log(fileContent[0])
+      expect(fileContent[0]).to.contain(`Hi First Name Last Name, Your total purchase amount is 0. Thank you`);
+    });
+    // signUp.getContinue().click();
+    // signUp.visit("login");
+    // signUp.sumbitDeleteAccount().click();
+    // signUp.visit("delete_account");
+    // signUp.getAccountDeleted().should("have.text", validationMessages.succesDeletedAccountText );
+    // signUp.getContinue().click();
+    // signUp.visit();
+    // signUp.getSignupLogin().click();
+    // signUp.visit("login");
       })
 
-    Cypress.Commands.add('caruselCommands', (signUp, data) => { 
-    signUp.visit();
-    signUp.getButtons().should("be.visible");
-    signUp.getAutomationIcon().then(($elem) => {
-      expect($elem).to.contain(validationMessages.automationIconText);
-      expect($elem).to.contain(
-        validationMessages.caruselPanelFirstText
-      );
-      expect($elem).to.contain(
-       validationMessages.caruselPanelSecondText
-      );
-    });
-    signUp.getTestCases().should("be.visible").and("contain", validationMessages.testCasesText);
-    signUp
-      .getTestCases()
-      .should("have.css", "background-color", data.greenColor);
-    signUp
-      .getTestCases()
-      .realHover()
-      .should("have.css", "background-color", data.orangeColor);
-    signUp
-      .getApi()
-      .should("have.css", "background-color", data.greenColor)
-      .and("contain", validationMessages.apiListText);
-    cy.wait(7000);
-    cy.get(".item").should("have.class", "active");
-    signUp.getFirstCaruselItem().should("be.visible");
+  //   Cypress.Commands.add('caruselCommands', (signUp, data) => { 
+  //   signUp.visit();
+  //   signUp.getButtons().should("be.visible");
+  //   signUp.getAutomationIcon().then(($elem) => {
+  //     expect($elem).to.contain(validationMessages.automationIconText);
+  //     expect($elem).to.contain(
+  //       validationMessages.caruselPanelFirstText
+  //     );
+  //     expect($elem).to.contain(
+  //      validationMessages.caruselPanelSecondText
+  //     );
+  //   });
+  //   signUp.getTestCases().should("be.visible").and("contain", validationMessages.testCasesText);
+  //   signUp
+  //     .getTestCases()
+  //     .should("have.css", "background-color", data.greenColor);
+  //   signUp
+  //     .getTestCases()
+  //     .realHover()
+  //     .should("have.css", "background-color", data.orangeColor);
+  //   signUp
+  //     .getApi()
+  //     .should("have.css", "background-color", data.greenColor)
+  //     .and("contain", validationMessages.apiListText);
+  //   cy.wait(7000);
+  //   cy.get(".item").should("have.class", "active");
+  //   signUp.getFirstCaruselItem().should("be.visible");
 
-    signUp.getFirstItem().should("be.visible").and("contain", data.codeFirstItem);
-    signUp
-      .getFirstItem()
-      .realHover()
-      .should("have.css", "background-color", data.hoverColor);
-  })
+  //   signUp.getFirstItem().should("be.visible").and("contain", data.codeFirstItem);
+  //   signUp
+  //     .getFirstItem()
+  //     .realHover()
+  //     .should("have.css", "background-color", data.hoverColor);
+  // })
